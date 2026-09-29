@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>OpdQueueing</RootNamespace>
+  </PropertyGroup>
+
+  <!--
+    Two external NuGet packages do the actual file importing:
+      - ClosedXML : reads the .xlsx dataset (Arrival/Start/End times)
+      - PdfPig     : extracts text from the two PDF files (Chi-Square
+                      results file and the SPSS output file) so the
+                      program can parse real numbers out of them instead
+                      of hard-coding them.
+    Restore with:  dotnet restore
+    Run with:      dotnet run, followed by two dashes (space separated), then the
+                    three file names in quotes, e.g.:
+                    dotnet run [dash][dash] "OPD-Data-Group1.xlsx" "Chi_Square_Analysison_arrival_time.pdf" "OPD-SPSS.pdf"
+  -->
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="PdfPig" Version="0.1.8" />
+  </ItemGroup>
+
+</Project>
