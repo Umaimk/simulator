@@ -9,18 +9,19 @@
   </PropertyGroup>
 
   <!--
-    This project builds Mm1Check.cs only (the standalone M/M/1 assumption
-    check). Program.cs and GG1Check.cs live in the same folder but each has
-    their own Main method, so both are excluded here.
+    This project builds GG1Check.cs only (the standalone G/G/1 assumption
+    check). Program.cs and Mm1Check.cs live in the same folder but each has
+    its own Main method, so both are excluded here. Directory.Build.props
+    (UseArtifactsOutput) keeps this project's build output separate from
+    the other two automatically.
   -->
   <ItemGroup>
     <Compile Remove="Program.cs" />
-    <Compile Remove="GG1Check.cs" />
+    <Compile Remove="Mm1Check.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.2" />
-    <PackageReference Include="PdfPig" Version="0.1.8" />
   </ItemGroup>
 
 </Project>

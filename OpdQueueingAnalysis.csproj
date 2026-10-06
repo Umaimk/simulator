@@ -27,11 +27,13 @@
 
   <!--
     This project builds Program.cs (the main M/G/1 analysis) only.
-    Mm1Check.cs lives in the same folder but has its own Main method, so it
-    is excluded here and built separately via Mm1Check.csproj instead.
+    Mm1Check.cs and GG1Check.cs live in the same folder but each has its own
+    Main method, so both are excluded here and built separately via
+    Mm1Check.csproj / GG1Check.csproj instead.
   -->
   <ItemGroup>
     <Compile Remove="Mm1Check.cs" />
+    <Compile Remove="GG1Check.cs" />
   </ItemGroup>
 
 </Project>
