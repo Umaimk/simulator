@@ -1,0 +1,25 @@
+<Project>
+  <!--
+    This file applies automatically to every project in this folder
+    (that's what "Directory.Build.props" means to MSBuild - no need to
+    reference it from the .csproj files).
+
+    UseArtifactsOutput switches both OpdQueueingAnalysis.csproj and
+    Mm1Check.csproj to the newer ".NET artifacts output" layout, which
+    automatically separates each project's build files into its own
+    subfolder (named after the project) under a single top-level
+    "artifacts" folder:
+
+        artifacts\bin\OpdQueueingAnalysis\...
+        artifacts\bin\Mm1Check\...
+        artifacts\obj\OpdQueueingAnalysis\...
+        artifacts\obj\Mm1Check\...
+
+    This is what actually fixes the two projects colliding when they
+    share one folder - MSBuild requires this specific property to be set
+    here (or on the command line), not inside an individual .csproj file.
+  -->
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+  </PropertyGroup>
+</Project>

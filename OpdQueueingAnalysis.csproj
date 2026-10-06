@@ -25,4 +25,13 @@
     <PackageReference Include="PdfPig" Version="0.1.8" />
   </ItemGroup>
 
+  <!--
+    This project builds Program.cs (the main M/G/1 analysis) only.
+    Mm1Check.cs lives in the same folder but has its own Main method, so it
+    is excluded here and built separately via Mm1Check.csproj instead.
+  -->
+  <ItemGroup>
+    <Compile Remove="Mm1Check.cs" />
+  </ItemGroup>
+
 </Project>
